@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.extrahint">
+            <block template="Bread_BreadCheckout::breadcheckout/view.phtml"
+                class="Bread\BreadCheckout\Block\Product\Bundle" as="breadcheckout.prod.view" name="breadcheckout.prod.view"/>
+        </referenceContainer>
+        <referenceBlock name="product.info.main">
+            <block template="Bread_BreadCheckout::breadcheckout/price.phtml" class="Bread\BreadCheckout\Block\Product\Bundle" name="breadcheckout.prod.price" before="customize.button"/>
+        </referenceBlock>
+
+        <referenceBlock name="product.info.options.wrapper">
+            <referenceBlock name="breadcheckout.checkout.options" remove="true"/>
+
+            <!-- <block template="Bread_BreadCheckout::breadcheckout/options_bundle.phtml"
+                class="Magento\Catalog\Block\Product\View\Options" name="breadcheckout.checkout.bundle.options"/> -->
+
+            <block template="Bread_BreadCheckout::breadcheckout/bundle.phtml"
+                class="Bread\BreadCheckout\Block\Product\Bundle" name="breadcheckout.checkout.bundle"/>
+        </referenceBlock>
+    </body>
+</page>

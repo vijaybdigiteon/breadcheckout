@@ -1,0 +1,23 @@
+<?php
+/**
+ *
+ * @author  Bread   @copyright  2016
+ * @author  Joel    @Mediotype
+ * @author  Miranda @Mediotype
+ */
+
+/** @var $block Bread\BreadCheckout\Block\Product\View */
+?>
+<?php $_options = $block->decorateArray($block->getProduct()->getOptions()); ?>
+<?php if (!empty($_options)) : ?>
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Bread_BreadCheckout/js/product/options": {
+                    "optionsData": <?= /* @noEscape */ $block->getCustomOptionsData($_options); ?>,
+                    "productType": "<?= /* @noEscape */ $block->getProduct()->getTypeId()?>"
+                }
+            }
+        }
+    </script>
+<?php endif; ?>
